@@ -1,0 +1,49 @@
+
+---
+
+image_prepro:
+
+  convert_uint8: True
+
+  # This is to rescale globally to [0,255] (mandatory)
+  params_cs_global:
+    apha_low: 0 # lower quantile (if 0, takes the minimum pixel value)
+    alpha_high: 1 # top quantile (if 1, takes the maximum pixel value)
+
+  do_crop: True # if False, ignore the following parameters
+  crop_edges:
+    rows: [5,5] # important: if choose to crop one side, crop at least 1 pixel other side, otherwise it will break
+    columns: [5,5] # same comment
+
+  do_smooth_sharpen: True
+
+  do_contrast_stretch: True # if False, ignore the following parameters
+  params_cs:
+    apha_low: 0
+    alpha_high: 0.99
+    binsize:
+      rows: 50
+      columns: 50
+    numbins:
+      rows: 200
+      columns: 200
+
+
+kpts_matching:
+  prepro:
+    do_crop: True # if False, ignore the following parameters  - Note that if crop values are smaller than what was used for template creation, they will be automatically adjusted
+    crop_edges:
+      rows: [5,5] # important: if choose to crop one side, crop at least 1 pixel other side, otherwise it will break
+      columns: [5,5] # same comment
+
+  params_match:
+    max_dxy_kpts: 100 # in pixels - max distance expected between keypoints
+    patch_halfsiz: 20 # in pixels - half size of square patch created around each keypoint to evaluate their correlation (see: patch_min_corr)
+    patch_edg_shift: 10 # 0 # in pixels - allow to shift the patch for x/y pixels in case the keypoints are too close to the image edges
+    # -> set to 0 to discard the matches with keypoints close to the image edges
+    patch_min_corr: 0.3 # minimum pearson corr - otherwise discard the match
+
+    # Parameters for removing outliers using Mahalanobis distance (displacement dx,dy
+    MD_high_corr: 0.7 # pearson corr to select matches to estimate distribution of Mahalanobis distances
+    MD_outlier: 3 # 2.5 to be very conservative
+...
