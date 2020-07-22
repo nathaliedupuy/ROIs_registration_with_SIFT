@@ -1,6 +1,5 @@
-###########################################################
 # INSTALL ROIS REGISTRATION WITH SIFT (OPENCV) ON WINDOWS #
-###########################################################
+
 CONTENT
 --------------------------------------------------------------------------------
 	INSTALLATION STEPS - PART I  - PREP THE VIRTUAL ENV
@@ -9,11 +8,9 @@ CONTENT
 	TROUBLESHOOT
 
 
-# This document is long because it is step-by-step, but the installation is not that complicated...
+This document may seem long, but it is a step-by-step installation; but the installation is not that complicated...
 
 # INSTALLATION STEPS - PART I - PREP THE VIRTUAL ENV
-# ------------------------------------------------------------------------------
-
 
 **Important before you start - if you do not use Anaconda**
 
@@ -118,7 +115,6 @@ If you have a DLL error, uninstall scipy and re-install using pip:
 
 
 # INSTALLATION STEPS - PART II - OPENCV WITH SIFT
-# ------------------------------------------------------------------------------
 
 We need to build OpenCV from source because of the SIFT library which is now an 
 extra feature, as it is no longer open access except for research.
@@ -264,7 +260,6 @@ https://docs.opencv.org/master/d5/de5/tutorial_py_setup_in_windows.html
 
 
 # RUN PYTHON IN MATLAB WITH ANACONDA (WINDOWS)
-# ------------------------------------------------------------------------------
 
 If you need to call python scripts that require specific packages installed with 
 Anaconda you have to start MATLAB from the Anaconda Prompt.
@@ -286,7 +281,6 @@ virtual environment (you can check by typing 'pyversion' in MATLAB).
 
 
 # TROUBLESHOOT
-# ------------------------------------------------------------------------------
 
 **Anaconda command did not work**
 
