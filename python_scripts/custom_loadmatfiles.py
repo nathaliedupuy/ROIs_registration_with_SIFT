@@ -8,11 +8,6 @@ import scipy.io as spio
 # https://stackoverflow.com/questions/7008608/scipy-io-loadmat-nested-structures-i-e-dictionaries/7418519
 # So much better than loadmat by scipy
 
-
-
-# Adapted from: https://stackoverflow.com/questions/7008608/scipy-io-loadmat-nested-structures-i-e-dictionaries/7418519
-# SO much better than loadmat from scipy
-
 def load_matlab_data(filename):
     '''
     this function should be called instead of direct spio.loadmat
