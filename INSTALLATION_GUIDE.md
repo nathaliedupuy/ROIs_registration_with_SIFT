@@ -61,7 +61,7 @@ If you do not wish to use anaconda, use virtualenv
 
 With Anaconda
 
-	conda create --name *name_of_venv* python=x.xx
+	conda create --name name_of_venv python=x.xx
 
 A new directory named *name_of_venv* will be created by default in the
 /envs/ where Anaconda3 is (e.g. C:\Users\the_user\Anaconda3\envs). 
@@ -82,7 +82,7 @@ Some basic commands for the virtual env that may help:
 
 Activate environment:   
 
-	conda activate *name_of_venv*
+	conda activate name_of_venv
 
 If successful, you will see the start of your command line changed with:
     (*name_of_venv*) path\where\you\are>
@@ -132,6 +132,8 @@ If you do not have it Download & install
 	
 When you install Visual Studio, make sure to include the module called 
 	"Desktop development with C++"  (it is needed for building)
+	Make sure to add the SDK, and restart your computer if you've made any changes.
+	If you do not see it, make sure you have a recent version of VS.
 If you missed it, no worries you can install it later:
 	simply launch Visual Studio Installer, then click modify and select the module.
 	
@@ -163,7 +165,7 @@ delete the content of the 'build' folder before re-do the next steps.
 
 **CMake in action**
 	
-	- Back in the command promptMake, deactivated the virtual env (conda deactivate)
+	- Back in the command prompt, deactivated the virtual env (conda deactivate)
 		Check you are back to base.
 
 It would have been great to use the gui, but things are never that
@@ -172,7 +174,8 @@ straightforward.
 	- In the command prompt, navigate to the folder which contains cmake.exe
 		The exe files should be in the_cmake_dir/bin/
 		
-	- Replace the parts in brackets [] in the lines below with your paths
+	- Replace the parts in brackets [] (and remove the brackets!) 
+		in the lines below with your paths
 		(attention for DPYTHON3_LIBRARY you also need to specify the python version) 
 		and then copy the block to command line.
 
@@ -197,6 +200,9 @@ Same goes for -S and -B. Directly insert the paths of source and build.
 		-DOPENCV_ENABLE_NONFREE=ON ^
 		-DOPENCV_EXTRA_MODULES_PATH=[ path/to/OpenCV-contrib ]/modules ^
 		-S[ path/to/OpenCV ] -B[ path/to/OpenCV ]/build
+
+Note that the line continuation ^ might not work... 
+in that case remove them and write everything in one single line.
 
 Check the output before continuing:
 
@@ -310,6 +316,13 @@ https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environme
 
 Just ignore them...
 
+**Error during opencv prep installation with cmake**
+	
+	- Check paths: on WINDOWS paths are with backslash '\' or slash '/'
+		However for CMake use only slash '/'
+		(note on Linux use slash '/')
+	- Make sure you downloaded the same version for opencv and opencv_contrib
+
 
 **Visual Studio asks for a licence**
 
@@ -334,9 +347,4 @@ A workaround is to uninstall scipy and re-install using pip:
 Do not delete anything in the opencv folder (skip the 'free-some-space' step)
 and try again. If it fails again, re-do the installation...
 
-*Error during opencv prep installation with cmake*
-	
-	- Check paths: on WINDOWS paths are with backslash '\' or slash '/'
-		However for CMake use only slash '/'
-		(note on Linux use slash '/')
-	- Make sure you downloaded the same version for opencv and opencv_contrib
+
